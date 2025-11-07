@@ -35,7 +35,7 @@ const LobbyScreen = ()=>{
         <div>Lobby</div>
         <form onSubmit={handleSubmit}>
             <label htmlFor="email">Email ID</label>
-            <input type="email" id="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
+            <input type="" id="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
             <br />
             <label htmlFor="room">Room Number</label>
             <input type="" id="room" value={room} onChange={(e)=>setRoom(e.target.value)} />
