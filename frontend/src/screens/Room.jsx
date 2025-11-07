@@ -39,9 +39,12 @@ function RoomPage() {
                 remoteSocketID &&
                 <button onClick={handleCallUser}>CALL</button>
             }
-            <video
+            {
+                mystream && (
+                    <>
+                    <h1>My Stream</h1>
+                     <video
                 autoPlay
-                
                 
                 width="320px"
                 height="320"
@@ -49,7 +52,11 @@ function RoomPage() {
                 ref={(video) => {
                     if (video && mystream) video.srcObject = mystream;
                 }}
-            />
+                />
+                </>
+            )
+            }
+           
 
 
         </>
