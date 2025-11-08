@@ -1,11 +1,18 @@
 import { Server } from "socket.io";
-
+import express from "express"
 const io = new Server(8000,{
     cors: true
 });
 
 const emailToSocketIdMap = new Map();
 const socketIdToEmailMap = new Map();
+
+const app = express();
+
+app.get('/',(req,res)=>{
+    res.status(200).json({msg: "Server active"})
+})
+
 
 io.on('connection',socket=>{
     console.log("Socket connected", socket.id)
@@ -36,4 +43,8 @@ io.on('connection',socket=>{
     console.log("peer:nego:done", ans);
     io.to(to).emit("peer:nego:final", { from: socket.id, ans });
   });
+})
+
+app.listen(3000,()=>{
+    console.log("runnnig at port ",3000)
 })
